@@ -1,0 +1,10 @@
+entity.mqtt_broker.add_form:
+  route_name: entity.mqtt_broker.add_form
+  title: 'Add MQTT Broker'
+  appears_on:
+    - entity.mqtt_broker.collection
+entity.mqtt_subscription.add_form:
+  route_name: entity.mqtt_subscription.add_form
+  title: 'Add subscription'
+  appears_on:
+    - entity.mqtt_subscription.collection

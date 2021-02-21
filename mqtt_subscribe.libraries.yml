@@ -1,0 +1,8 @@
+subscription_csv_data:
+  js:
+    js/mqtt_subscribe.js: {}
+    //canvasjs.com/assets/script/canvasjs.min.js: { type: external, attributes: { async: true } }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

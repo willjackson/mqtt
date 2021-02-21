@@ -1,0 +1,40 @@
+# MQTT Content admin
+mqtt_subscription.content_admin:
+  title: 'MQTT'
+  route_name: mqtt_subscription.content_admin
+  description: 'MQTT content.'
+  parent: system.admin_content
+
+# MQTT Broker menu items definition
+entity.mqtt_broker.collection:
+  title: 'Brokers'
+  route_name: entity.mqtt_broker.collection
+  description: 'List brokers'
+  parent: mqtt_subscription.content_admin
+
+# MQTT Subscription menu items definition
+entity.mqtt_subscription.collection:
+  title: 'Subscriptions'
+  route_name: entity.mqtt_subscription.collection
+  description: 'List subscriptions'
+  parent: mqtt_subscription.content_admin
+
+# MQTT Structure admin
+mqtt_subscription.admin:
+  title: 'MQTT'
+  route_name: mqtt_subscription.admin
+  description: 'Manage MQTT settings.'
+  parent: system.admin_structure
+
+mqtt_broker.admin.structure.settings:
+  title: 'Broker settings'
+  description: 'Configure brokers'
+  route_name: mqtt_broker.settings
+  parent: mqtt_subscription.admin
+
+mqtt_subscription.admin.structure.settings:
+  title: 'Subscription settings'
+  description: 'Configure subscriptions'
+  route_name: mqtt_subscription.settings
+  parent: mqtt_subscription.admin
+

@@ -1,0 +1,22 @@
+{#
+/**
+ * @file mqtt_subscription.html.twig
+ * Default theme implementation to present MQTT Subscription data.
+ *
+ * This template is used when viewing MQTT Subscription pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_mqtt_subscription()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('mqtt_subscription') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

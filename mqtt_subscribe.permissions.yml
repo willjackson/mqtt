@@ -1,0 +1,62 @@
+add mqtt broker entities:
+  title: 'Create new MQTT Broker entities'
+
+administer mqtt broker entities:
+  title: 'Administer MQTT Broker entities'
+  description: 'Allow to access the administration form to configure MQTT Broker entities.'
+  restrict access: true
+
+delete mqtt broker entities:
+  title: 'Delete MQTT Broker entities'
+
+edit mqtt broker entities:
+  title: 'Edit MQTT Broker entities'
+
+view published mqtt broker entities:
+  title: 'View published MQTT Broker entities'
+
+view unpublished mqtt broker entities:
+  title: 'View unpublished MQTT Broker entities'
+
+view all mqtt broker revisions:
+  title: 'View all MQTT Broker revisions'
+
+revert all mqtt broker revisions:
+  title: 'Revert all MQTT Broker revisions'
+  description: 'Role requires permission <em>view MQTT Broker revisions</em> and <em>edit rights</em> for mqtt broker entities in question or <em>administer mqtt broker entities</em>.'
+
+delete all mqtt broker revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view MQTT Broker revisions</em> and <em>delete rights</em> for mqtt broker entities in question or <em>administer mqtt broker entities</em>.'
+
+add mqtt subscription entities:
+  title: 'Create new MQTT Subscription entities'
+
+administer mqtt subscription entities:
+  title: 'Administer MQTT Subscription entities'
+  description: 'Allow to access the administration form to configure MQTT Subscription entities.'
+  restrict access: true
+
+delete mqtt subscription entities:
+  title: 'Delete MQTT Subscription entities'
+
+edit mqtt subscription entities:
+  title: 'Edit MQTT Subscription entities'
+
+view published mqtt subscription entities:
+  title: 'View published MQTT Subscription entities'
+
+view unpublished mqtt subscription entities:
+  title: 'View unpublished MQTT Subscription entities'
+
+view all mqtt subscription revisions:
+  title: 'View all MQTT Subscription revisions'
+
+revert all mqtt subscription revisions:
+  title: 'Revert all MQTT Subscription revisions'
+  description: 'Role requires permission <em>view MQTT Subscription revisions</em> and <em>edit rights</em> for mqtt subscription entities in question or <em>administer mqtt subscription entities</em>.'
+
+delete all mqtt subscription revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view MQTT Subscription revisions</em> and <em>delete rights</em> for mqtt subscription entities in question or <em>administer mqtt subscription entities</em>.'
+

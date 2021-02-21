@@ -1,0 +1,15 @@
+mqtt_subscription.admin:
+  path: '/admin/structure/mqtt'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'MQTT'
+  requirements:
+    _permission: 'access administration pages'
+
+mqtt_subscription.content_admin:
+  path: '/admin/content/mqtt'
+  defaults:
+    _title: 'MQTT'
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+  requirements:
+    _permission: 'access administration pages'

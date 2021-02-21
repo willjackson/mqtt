@@ -1,0 +1,16 @@
+{
+    "name": "mqtt_subscribe",
+    "type": "drupal-module",
+    "description": "Connect to MQTT brokers and subscribe to retreive subscribtion data and build report data via csv file.",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/mqtt_subscribe",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/mqtt_subscribe",
+        "source": "http://cgit.drupalcode.org/mqtt_subscribe"
+    },
+    "require": {
+        "karpy47/php-mqtt-client": "dev-master"
+    }
+}

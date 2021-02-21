@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Contains mqtt_subscribe.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function mqtt_subscribe_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the mqtt_subscribe module.
+    case 'help.page.mqtt_subscribe':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Connect to MQTT brokers and subscribe to retrieve subscription data and build report data via csv file.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function mqtt_subscribe_cron() {
+  // We access our configuration.
+  $cron_config = \Drupal::config('mqtt_subscribe.mqttsubscriptionsettingsform');
+  $subscription_poll = FALSE; // todo: add config for everything else
+
+  if ($cron_config->get('mqtt_polling_interval') == 0 || $subscription_poll) {
+
+    $query = \Drupal::entityQuery('mqtt_subscription')
+      ->condition('status', 1);
+
+    $subscription_ids = $query->execute();
+    $subscription_storage = \Drupal::entityTypeManager()->getStorage('mqtt_subscription');
+    $subscriptions = $subscription_storage->loadMultiple($subscription_ids);
+
+    // Get queue.
+    $queue = \Drupal::queue('mqtt_subscription_queue');
+    $item = (object) ['subscriptions' => $subscriptions];
+
+    // Create item to queue.
+    $queue->createItem($item);
+  }
+}

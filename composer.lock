@@ -1,0 +1,57 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "494e94898eef87726c86fc46c5f45548",
+    "packages": [
+        {
+            "name": "karpy47/php-mqtt-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/karpy47/PhpMqttClient.git",
+                "reference": "638cf047cb074244bc984a48d09c274189feb172"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/karpy47/PhpMqttClient/zipball/638cf047cb074244bc984a48d09c274189feb172",
+                "reference": "638cf047cb074244bc984a48d09c274189feb172",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "karpy47\\PhpMqttClient\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "karpy47"
+                }
+            ],
+            "description": "MQTT 3.1.1 library for PHP with TLS support",
+            "keywords": [
+                "client",
+                "mqtt",
+                "php"
+            ],
+            "time": "2020-05-04T07:01:16+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "karpy47/php-mqtt-client": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

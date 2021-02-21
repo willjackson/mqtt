@@ -1,0 +1,57 @@
+# MQTT Broker routing definition
+mqtt_broker.settings_tab:
+  route_name: mqtt_broker.settings
+  title: 'Settings'
+  base_route: mqtt_broker.settings
+
+entity.mqtt_broker.canonical:
+  route_name: entity.mqtt_broker.canonical
+  base_route: entity.mqtt_broker.canonical
+  title: 'View'
+
+entity.mqtt_broker.edit_form:
+  route_name: entity.mqtt_broker.edit_form
+  base_route: entity.mqtt_broker.canonical
+  title: 'Edit'
+
+entity.mqtt_broker.version_history:
+  route_name: entity.mqtt_broker.version_history
+  base_route: entity.mqtt_broker.canonical
+  title: 'Revisions'
+
+entity.mqtt_broker.delete_form:
+  route_name:  entity.mqtt_broker.delete_form
+  base_route:  entity.mqtt_broker.canonical
+  title: Delete
+  weight: 10
+# MQTT Subscription routing definition
+mqtt_subscription.settings_tab:
+  route_name: mqtt_subscription.settings
+  title: 'Settings'
+  base_route: mqtt_subscription.settings
+
+entity.mqtt_subscription.canonical:
+  route_name: entity.mqtt_subscription.canonical
+  base_route: entity.mqtt_subscription.canonical
+  title: 'View'
+
+entity.mqtt_subscription.edit_form:
+  route_name: entity.mqtt_subscription.edit_form
+  base_route: entity.mqtt_subscription.canonical
+  title: 'Edit'
+
+entity.mqtt_subscription.version_history:
+  route_name: entity.mqtt_subscription.version_history
+  base_route: entity.mqtt_subscription.canonical
+  title: 'Revisions'
+
+entity.mqtt_subscription.delete_form:
+  route_name:  entity.mqtt_subscription.delete_form
+  base_route:  entity.mqtt_subscription.canonical
+  title: Delete
+  weight: 10
+
+mqtt_subscription.content_admin:
+  title: MQTT
+  route_name: mqtt_subscription.content_admin
+  base_route: system.admin_content
