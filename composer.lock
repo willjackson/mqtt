@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "494e94898eef87726c86fc46c5f45548",
+    "content-hash": "b4fefb999559f93bce2fc87c98d86b6e",
     "packages": [
         {
             "name": "karpy47/php-mqtt-client",

@@ -1,5 +1,5 @@
 {
-    "name": "mqtt_subscribe",
+    "name": "willjackson/mqtt_subscribe",
     "type": "drupal-module",
     "description": "Connect to MQTT brokers and subscribe to retreive subscribtion data and build report data via csv file.",
     "keywords": [
