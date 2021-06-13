@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Event;
+namespace Drupal\mqtt\Event;
 
-use Drupal\mqtt_subscribe\Entity\MqttSubscription;
+use Drupal\mqtt\Entity\MqttSubscription;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
@@ -15,14 +15,14 @@ class MqttSubscriptionCheckEvent extends Event {
   const EVENT_NAME = 'mqtt_subscription_check';
 
   /**
-   * @var \Drupal\mqtt_subscribe\Entity\MqttSubscription
+   * @var \Drupal\mqtt\Entity\MqttSubscription
    */
   public $subscription;
 
   /**
    * Constructs the object.
    *
-   * @param \Drupal\mqtt_subscribe\Entity\MqttSubscription $subscription
+   * @param \Drupal\mqtt\Entity\MqttSubscription $subscription
    *   The account of the user logged in.
    */
   public function __construct(MqttSubscription $subscription) {

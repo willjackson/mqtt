@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe;
+namespace Drupal\mqtt;
 
 use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\Access\AccessResult;
 /**
  * Access controller for the MQTT Broker entity.
  *
- * @see \Drupal\mqtt_subscribe\Entity\MqttBroker.
+ * @see \Drupal\mqtt\Entity\MqttBroker.
  */
 class MqttBrokerAccessControlHandler extends EntityAccessControlHandler {
 
@@ -18,7 +18,7 @@ class MqttBrokerAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
-    /** @var \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface $entity */
+    /** @var \Drupal\mqtt\Entity\MqttBrokerInterface $entity */
 
     switch ($operation) {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\mqtt_subscribe\Functional;
+namespace Drupal\Tests\mqtt\Functional;
 
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
@@ -8,7 +8,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Simple test to ensure that main page loads with module enabled.
  *
- * @group mqtt_subscribe
+ * @group mqtt
  */
 class LoadTest extends BrowserTestBase {
 
@@ -17,7 +17,7 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['mqtt_subscribe'];
+  public static $modules = ['mqtt'];
 
   /**
    * A user with permission to administer site configuration.

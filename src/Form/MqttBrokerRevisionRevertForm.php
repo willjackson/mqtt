@@ -1,24 +1,24 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Form;
+namespace Drupal\mqtt\Form;
 
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\mqtt_subscribe\Entity\MqttBrokerInterface;
+use Drupal\mqtt\Entity\MqttBrokerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a form for reverting a MQTT Broker revision.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttBrokerRevisionRevertForm extends ConfirmFormBase {
 
   /**
    * The MQTT Broker revision.
    *
-   * @var \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface
+   * @var \Drupal\mqtt\Entity\MqttBrokerInterface
    */
   protected $revision;
 
@@ -118,12 +118,12 @@ class MqttBrokerRevisionRevertForm extends ConfirmFormBase {
   /**
    * Prepares a revision to be reverted.
    *
-   * @param \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface $revision
+   * @param \Drupal\mqtt\Entity\MqttBrokerInterface $revision
    *   The revision to be reverted.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The current state of the form.
    *
-   * @return \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface
+   * @return \Drupal\mqtt\Entity\MqttBrokerInterface
    *   The prepared revision ready to be stored.
    */
   protected function prepareRevertedRevision(MqttBrokerInterface $revision, FormStateInterface $form_state) {

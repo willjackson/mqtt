@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Controller;
+namespace Drupal\mqtt\Controller;
 
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Url;
-use Drupal\mqtt_subscribe\Entity\MqttBrokerInterface;
+use Drupal\mqtt\Entity\MqttBrokerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**

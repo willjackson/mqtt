@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Entity;
+namespace Drupal\mqtt\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -14,28 +14,28 @@ use Drupal\user\UserInterface;
 /**
  * Defines the MQTT Subscription entity.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  *
  * @ContentEntityType(
  *   id = "mqtt_subscription",
  *   label = @Translation("Subscription"),
  *   handlers = {
- *     "storage" = "Drupal\mqtt_subscribe\MqttSubscriptionStorage",
+ *     "storage" = "Drupal\mqtt\MqttSubscriptionStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\mqtt_subscribe\MqttSubscriptionListBuilder",
- *     "views_data" = "Drupal\mqtt_subscribe\Entity\MqttSubscriptionViewsData",
- *     "translation" = "Drupal\mqtt_subscribe\MqttSubscriptionTranslationHandler",
+ *     "list_builder" = "Drupal\mqtt\MqttSubscriptionListBuilder",
+ *     "views_data" = "Drupal\mqtt\Entity\MqttSubscriptionViewsData",
+ *     "translation" = "Drupal\mqtt\MqttSubscriptionTranslationHandler",
  *
  *     "form" = {
- *       "default" = "Drupal\mqtt_subscribe\Form\MqttSubscriptionForm",
- *       "add" = "Drupal\mqtt_subscribe\Form\MqttSubscriptionForm",
- *       "edit" = "Drupal\mqtt_subscribe\Form\MqttSubscriptionForm",
- *       "delete" = "Drupal\mqtt_subscribe\Form\MqttSubscriptionDeleteForm",
+ *       "default" = "Drupal\mqtt\Form\MqttSubscriptionForm",
+ *       "add" = "Drupal\mqtt\Form\MqttSubscriptionForm",
+ *       "edit" = "Drupal\mqtt\Form\MqttSubscriptionForm",
+ *       "delete" = "Drupal\mqtt\Form\MqttSubscriptionDeleteForm",
  *     },
  *     "route_provider" = {
- *       "html" = "Drupal\mqtt_subscribe\MqttSubscriptionHtmlRouteProvider",
+ *       "html" = "Drupal\mqtt\MqttSubscriptionHtmlRouteProvider",
  *     },
- *     "access" = "Drupal\mqtt_subscribe\MqttSubscriptionAccessControlHandler",
+ *     "access" = "Drupal\mqtt\MqttSubscriptionAccessControlHandler",
  *   },
  *   base_table = "mqtt_subscription",
  *   data_table = "mqtt_subscription_field_data",

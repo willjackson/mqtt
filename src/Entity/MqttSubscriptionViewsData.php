@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Entity;
+namespace Drupal\mqtt\Entity;
 
 use Drupal\views\EntityViewsData;
 

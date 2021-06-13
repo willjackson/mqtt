@@ -1,15 +1,15 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Form;
+namespace Drupal\mqtt\Form;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\mqtt_subscribe\Entity\MqttSubscriptionInterface;
+use Drupal\mqtt\Entity\MqttSubscriptionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a form for reverting a MQTT Subscription revision for a single trans.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttSubscriptionRevisionRevertTranslationForm extends MqttSubscriptionRevisionRevertForm {
 
@@ -75,7 +75,7 @@ class MqttSubscriptionRevisionRevertTranslationForm extends MqttSubscriptionRevi
   protected function prepareRevertedRevision(MqttSubscriptionInterface $revision, FormStateInterface $form_state) {
     $revert_untranslated_fields = $form_state->getValue('revert_untranslated_fields');
 
-    /** @var \Drupal\mqtt_subscribe\Entity\MqttSubscriptionInterface $default_revision */
+    /** @var \Drupal\mqtt\Entity\MqttSubscriptionInterface $default_revision */
     $latest_revision = $this->MqttSubscriptionStorage->load($revision->id());
     $latest_revision_translation = $latest_revision->getTranslation($this->langcode);
 

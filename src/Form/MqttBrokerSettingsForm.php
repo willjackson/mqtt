@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Form;
+namespace Drupal\mqtt\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Class MqttBrokerSettingsForm.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttBrokerSettingsForm extends ConfigFormBase {
 
@@ -17,7 +17,7 @@ class MqttBrokerSettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'mqtt_subscribe.mqttbrokersettingsform',
+      'mqtt.mqttbrokersettingsform',
     ];
   }
 
@@ -40,7 +40,7 @@ class MqttBrokerSettingsForm extends ConfigFormBase {
    *   The current state of the form.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->config('mqtt_subscribe.mqttbrokersettingsform')
+    $this->config('mqtt.mqttbrokersettingsform')
       ->set('mqtt_id', $form_state->getValue('mqtt_id'))
       ->save();
   }
@@ -58,7 +58,7 @@ class MqttBrokerSettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $config = $this->config('mqtt_subscribe.mqttbrokersettingsform');
+    $config = $this->config('mqtt.mqttbrokersettingsform');
 
     $form['mqtt_id'] = [
       '#type' => 'textfield',

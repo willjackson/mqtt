@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Entity;
+namespace Drupal\mqtt\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -14,28 +14,28 @@ use Drupal\user\UserInterface;
 /**
  * Defines the MQTT Broker entity.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  *
  * @ContentEntityType(
  *   id = "mqtt_broker",
  *   label = @Translation("Broker"),
  *   handlers = {
- *     "storage" = "Drupal\mqtt_subscribe\MqttBrokerStorage",
+ *     "storage" = "Drupal\mqtt\MqttBrokerStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\mqtt_subscribe\MqttBrokerListBuilder",
- *     "views_data" = "Drupal\mqtt_subscribe\Entity\MqttBrokerViewsData",
- *     "translation" = "Drupal\mqtt_subscribe\MqttBrokerTranslationHandler",
+ *     "list_builder" = "Drupal\mqtt\MqttBrokerListBuilder",
+ *     "views_data" = "Drupal\mqtt\Entity\MqttBrokerViewsData",
+ *     "translation" = "Drupal\mqtt\MqttBrokerTranslationHandler",
  *
  *     "form" = {
- *       "default" = "Drupal\mqtt_subscribe\Form\MqttBrokerForm",
- *       "add" = "Drupal\mqtt_subscribe\Form\MqttBrokerForm",
- *       "edit" = "Drupal\mqtt_subscribe\Form\MqttBrokerForm",
- *       "delete" = "Drupal\mqtt_subscribe\Form\MqttBrokerDeleteForm",
+ *       "default" = "Drupal\mqtt\Form\MqttBrokerForm",
+ *       "add" = "Drupal\mqtt\Form\MqttBrokerForm",
+ *       "edit" = "Drupal\mqtt\Form\MqttBrokerForm",
+ *       "delete" = "Drupal\mqtt\Form\MqttBrokerDeleteForm",
  *     },
  *     "route_provider" = {
- *       "html" = "Drupal\mqtt_subscribe\MqttBrokerHtmlRouteProvider",
+ *       "html" = "Drupal\mqtt\MqttBrokerHtmlRouteProvider",
  *     },
- *     "access" = "Drupal\mqtt_subscribe\MqttBrokerAccessControlHandler",
+ *     "access" = "Drupal\mqtt\MqttBrokerAccessControlHandler",
  *   },
  *   base_table = "mqtt_broker",
  *   data_table = "mqtt_broker_field_data",

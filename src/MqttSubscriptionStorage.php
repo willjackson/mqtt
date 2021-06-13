@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\mqtt_subscribe;
+namespace Drupal\mqtt;
 
 use Drupal\Core\Entity\Sql\SqlContentEntityStorage;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\mqtt_subscribe\Entity\MqttSubscriptionInterface;
+use Drupal\mqtt\Entity\MqttSubscriptionInterface;
 
 /**
  * Defines the storage handler class for MQTT Subscription entities.
@@ -13,7 +13,7 @@ use Drupal\mqtt_subscribe\Entity\MqttSubscriptionInterface;
  * This extends the base storage class, adding required special handling for
  * MQTT Subscription entities.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttSubscriptionStorage extends SqlContentEntityStorage implements MqttSubscriptionStorageInterface {
 

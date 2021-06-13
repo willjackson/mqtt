@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe;
+namespace Drupal\mqtt;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
@@ -64,7 +64,7 @@ class MqttBrokerHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route
         ->setDefaults([
           '_title' => "{$entity_type->getLabel()} revisions",
-          '_controller' => '\Drupal\mqtt_subscribe\Controller\MqttBrokerController::revisionOverview',
+          '_controller' => '\Drupal\mqtt\Controller\MqttBrokerController::revisionOverview',
         ])
         ->setRequirement('_permission', 'view all mqtt broker revisions')
         ->setOption('_admin_route', TRUE);
@@ -87,8 +87,8 @@ class MqttBrokerHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision'));
       $route
         ->setDefaults([
-          '_controller' => '\Drupal\mqtt_subscribe\Controller\MqttBrokerController::revisionShow',
-          '_title_callback' => '\Drupal\mqtt_subscribe\Controller\MqttBrokerController::revisionPageTitle',
+          '_controller' => '\Drupal\mqtt\Controller\MqttBrokerController::revisionShow',
+          '_title_callback' => '\Drupal\mqtt\Controller\MqttBrokerController::revisionPageTitle',
         ])
         ->setRequirement('_permission', 'view all mqtt broker revisions')
         ->setOption('_admin_route', TRUE);
@@ -111,7 +111,7 @@ class MqttBrokerHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision_revert'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\mqtt_subscribe\Form\MqttBrokerRevisionRevertForm',
+          '_form' => '\Drupal\mqtt\Form\MqttBrokerRevisionRevertForm',
           '_title' => 'Revert to earlier revision',
         ])
         ->setRequirement('_permission', 'revert all mqtt broker revisions')
@@ -135,7 +135,7 @@ class MqttBrokerHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision_delete'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\mqtt_subscribe\Form\MqttBrokerRevisionDeleteForm',
+          '_form' => '\Drupal\mqtt\Form\MqttBrokerRevisionDeleteForm',
           '_title' => 'Delete earlier revision',
         ])
         ->setRequirement('_permission', 'delete all mqtt broker revisions')
@@ -159,7 +159,7 @@ class MqttBrokerHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('translation_revert'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\mqtt_subscribe\Form\MqttBrokerRevisionRevertTranslationForm',
+          '_form' => '\Drupal\mqtt\Form\MqttBrokerRevisionRevertTranslationForm',
           '_title' => 'Revert to earlier revision of a translation',
         ])
         ->setRequirement('_permission', 'revert all mqtt broker revisions')
@@ -183,7 +183,7 @@ class MqttBrokerHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route("/admin/structure/{$entity_type->id()}/settings");
       $route
         ->setDefaults([
-          '_form' => 'Drupal\mqtt_subscribe\Form\MqttBrokerSettingsForm',
+          '_form' => 'Drupal\mqtt\Form\MqttBrokerSettingsForm',
           '_title' => "{$entity_type->getLabel()} settings",
         ])
         ->setRequirement('_permission', $entity_type->getAdminPermission())

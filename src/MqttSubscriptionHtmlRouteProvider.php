@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe;
+namespace Drupal\mqtt;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
@@ -64,7 +64,7 @@ class MqttSubscriptionHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route
         ->setDefaults([
           '_title' => "{$entity_type->getLabel()} revisions",
-          '_controller' => '\Drupal\mqtt_subscribe\Controller\MqttSubscriptionController::revisionOverview',
+          '_controller' => '\Drupal\mqtt\Controller\MqttSubscriptionController::revisionOverview',
         ])
         ->setRequirement('_permission', 'view all mqtt subscription revisions')
         ->setOption('_admin_route', TRUE);
@@ -87,8 +87,8 @@ class MqttSubscriptionHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision'));
       $route
         ->setDefaults([
-          '_controller' => '\Drupal\mqtt_subscribe\Controller\MqttSubscriptionController::revisionShow',
-          '_title_callback' => '\Drupal\mqtt_subscribe\Controller\MqttSubscriptionController::revisionPageTitle',
+          '_controller' => '\Drupal\mqtt\Controller\MqttSubscriptionController::revisionShow',
+          '_title_callback' => '\Drupal\mqtt\Controller\MqttSubscriptionController::revisionPageTitle',
         ])
         ->setRequirement('_permission', 'view all mqtt subscription revisions')
         ->setOption('_admin_route', TRUE);
@@ -111,7 +111,7 @@ class MqttSubscriptionHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision_revert'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\mqtt_subscribe\Form\MqttSubscriptionRevisionRevertForm',
+          '_form' => '\Drupal\mqtt\Form\MqttSubscriptionRevisionRevertForm',
           '_title' => 'Revert to earlier revision',
         ])
         ->setRequirement('_permission', 'revert all mqtt subscription revisions')
@@ -135,7 +135,7 @@ class MqttSubscriptionHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('revision_delete'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\mqtt_subscribe\Form\MqttSubscriptionRevisionDeleteForm',
+          '_form' => '\Drupal\mqtt\Form\MqttSubscriptionRevisionDeleteForm',
           '_title' => 'Delete earlier revision',
         ])
         ->setRequirement('_permission', 'delete all mqtt subscription revisions')
@@ -159,7 +159,7 @@ class MqttSubscriptionHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route($entity_type->getLinkTemplate('translation_revert'));
       $route
         ->setDefaults([
-          '_form' => '\Drupal\mqtt_subscribe\Form\MqttSubscriptionRevisionRevertTranslationForm',
+          '_form' => '\Drupal\mqtt\Form\MqttSubscriptionRevisionRevertTranslationForm',
           '_title' => 'Revert to earlier revision of a translation',
         ])
         ->setRequirement('_permission', 'revert all mqtt subscription revisions')
@@ -183,7 +183,7 @@ class MqttSubscriptionHtmlRouteProvider extends AdminHtmlRouteProvider {
       $route = new Route("/admin/structure/{$entity_type->id()}/settings");
       $route
         ->setDefaults([
-          '_form' => 'Drupal\mqtt_subscribe\Form\MqttSubscriptionSettingsForm',
+          '_form' => 'Drupal\mqtt\Form\MqttSubscriptionSettingsForm',
           '_title' => "{$entity_type->getLabel()} settings",
         ])
         ->setRequirement('_permission', $entity_type->getAdminPermission())

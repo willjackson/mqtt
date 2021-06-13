@@ -1,6 +1,6 @@
 subscription_csv_data:
   js:
-    js/mqtt_subscribe.js: {}
+    js/mqtt.js: {}
     //canvasjs.com/assets/script/canvasjs.min.js: { type: external, attributes: { async: true } }
   dependencies:
     - core/jquery

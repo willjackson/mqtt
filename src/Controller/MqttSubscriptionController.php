@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Controller;
+namespace Drupal\mqtt\Controller;
 
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Url;
-use Drupal\mqtt_subscribe\Entity\MqttSubscriptionInterface;
+use Drupal\mqtt\Entity\MqttSubscriptionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -43,56 +43,56 @@ class MqttSubscriptionController extends ControllerBase implements ContainerInje
   /**
    * Displays a MQTT Subscription revision.
    *
-   * @param int $mqtt_subscription_revision
+   * @param int $mqtt_revision
    *   The MQTT Subscription revision ID.
    *
    * @return array
    *   An array suitable for drupal_render().
    */
-  public function revisionShow($mqtt_subscription_revision) {
-    $mqtt_subscription = $this->entityTypeManager()->getStorage('mqtt_subscription')
-      ->loadRevision($mqtt_subscription_revision);
-    $view_builder = $this->entityTypeManager()->getViewBuilder('mqtt_subscription');
+  public function revisionShow($mqtt_revision) {
+    $mqtt = $this->entityTypeManager()->getStorage('mqtt')
+      ->loadRevision($mqtt_revision);
+    $view_builder = $this->entityTypeManager()->getViewBuilder('mqtt');
 
-    return $view_builder->view($mqtt_subscription);
+    return $view_builder->view($mqtt);
   }
 
   /**
    * Page title callback for a MQTT Subscription revision.
    *
-   * @param int $mqtt_subscription_revision
+   * @param int $mqtt_revision
    *   The MQTT Subscription revision ID.
    *
    * @return string
    *   The page title.
    */
-  public function revisionPageTitle($mqtt_subscription_revision) {
-    $mqtt_subscription = $this->entityTypeManager()->getStorage('mqtt_subscription')
-      ->loadRevision($mqtt_subscription_revision);
+  public function revisionPageTitle($mqtt_revision) {
+    $mqtt = $this->entityTypeManager()->getStorage('mqtt')
+      ->loadRevision($mqtt_revision);
     return $this->t('Revision of %title from %date', [
-      '%title' => $mqtt_subscription->label(),
-      '%date' => $this->dateFormatter->format($mqtt_subscription->getRevisionCreationTime()),
+      '%title' => $mqtt->label(),
+      '%date' => $this->dateFormatter->format($mqtt->getRevisionCreationTime()),
     ]);
   }
 
   /**
    * Generates an overview table of older revisions of a MQTT Subscription.
    *
-   * @param \Drupal\mqtt_subscribe\Entity\MqttSubscriptionInterface $mqtt_subscription
+   * @param \Drupal\mqtt_subscribe\Entity\MqttSubscriptionInterface $mqtt
    *   A MQTT Subscription object.
    *
    * @return array
    *   An array as expected by drupal_render().
    */
-  public function revisionOverview(MqttSubscriptionInterface $mqtt_subscription) {
+  public function revisionOverview(MqttSubscriptionInterface $mqtt) {
     $account = $this->currentUser();
-    $mqtt_subscription_storage = $this->entityTypeManager()->getStorage('mqtt_subscription');
+    $mqtt_storage = $this->entityTypeManager()->getStorage('mqtt');
 
-    $langcode = $mqtt_subscription->language()->getId();
-    $langname = $mqtt_subscription->language()->getName();
-    $languages = $mqtt_subscription->getTranslationLanguages();
+    $langcode = $mqtt->language()->getId();
+    $langname = $mqtt->language()->getName();
+    $languages = $mqtt->getTranslationLanguages();
     $has_translations = (count($languages) > 1);
-    $build['#title'] = $has_translations ? $this->t('@langname revisions for %title', ['@langname' => $langname, '%title' => $mqtt_subscription->label()]) : $this->t('Revisions for %title', ['%title' => $mqtt_subscription->label()]);
+    $build['#title'] = $has_translations ? $this->t('@langname revisions for %title', ['@langname' => $langname, '%title' => $mqtt->label()]) : $this->t('Revisions for %title', ['%title' => $mqtt->label()]);
 
     $header = [$this->t('Revision'), $this->t('Operations')];
     $revert_permission = (($account->hasPermission("revert all mqtt subscription revisions") || $account->hasPermission('administer mqtt subscription entities')));
@@ -100,13 +100,13 @@ class MqttSubscriptionController extends ControllerBase implements ContainerInje
 
     $rows = [];
 
-    $vids = $mqtt_subscription_storage->revisionIds($mqtt_subscription);
+    $vids = $mqtt_storage->revisionIds($mqtt);
 
     $latest_revision = TRUE;
 
     foreach (array_reverse($vids) as $vid) {
       /** @var \Drupal\mqtt_subscribe\MqttSubscriptionInterface $revision */
-      $revision = $mqtt_subscription_storage->loadRevision($vid);
+      $revision = $mqtt_storage->loadRevision($vid);
       // Only show revisions that are affected by the language that is being
       // displayed.
       if ($revision->hasTranslation($langcode) && $revision->getTranslation($langcode)->isRevisionTranslationAffected()) {
@@ -117,14 +117,14 @@ class MqttSubscriptionController extends ControllerBase implements ContainerInje
 
         // Use revision link to link to revisions that are not active.
         $date = $this->dateFormatter->format($revision->getRevisionCreationTime(), 'short');
-        if ($vid != $mqtt_subscription->getRevisionId()) {
-          $link = $this->l($date, new Url('entity.mqtt_subscription.revision', [
-            'mqtt_subscription' => $mqtt_subscription->id(),
-            'mqtt_subscription_revision' => $vid,
+        if ($vid != $mqtt->getRevisionId()) {
+          $link = $this->l($date, new Url('entity.mqtt.revision', [
+            'mqtt' => $mqtt->id(),
+            'mqtt_revision' => $vid,
           ]));
         }
         else {
-          $link = $mqtt_subscription->link($date);
+          $link = $mqtt->link($date);
         }
 
         $row = [];
@@ -163,14 +163,14 @@ class MqttSubscriptionController extends ControllerBase implements ContainerInje
             $links['revert'] = [
               'title' => $this->t('Revert'),
               'url' => $has_translations ?
-              Url::fromRoute('entity.mqtt_subscription.translation_revert', [
-                'mqtt_subscription' => $mqtt_subscription->id(),
-                'mqtt_subscription_revision' => $vid,
+              Url::fromRoute('entity.mqtt.translation_revert', [
+                'mqtt' => $mqtt->id(),
+                'mqtt_revision' => $vid,
                 'langcode' => $langcode,
               ]) :
-              Url::fromRoute('entity.mqtt_subscription.revision_revert', [
-                'mqtt_subscription' => $mqtt_subscription->id(),
-                'mqtt_subscription_revision' => $vid,
+              Url::fromRoute('entity.mqtt.revision_revert', [
+                'mqtt' => $mqtt->id(),
+                'mqtt_revision' => $vid,
               ]),
             ];
           }
@@ -178,9 +178,9 @@ class MqttSubscriptionController extends ControllerBase implements ContainerInje
           if ($delete_permission) {
             $links['delete'] = [
               'title' => $this->t('Delete'),
-              'url' => Url::fromRoute('entity.mqtt_subscription.revision_delete', [
-                'mqtt_subscription' => $mqtt_subscription->id(),
-                'mqtt_subscription_revision' => $vid,
+              'url' => Url::fromRoute('entity.mqtt.revision_delete', [
+                'mqtt' => $mqtt->id(),
+                'mqtt_revision' => $vid,
               ]),
             ];
           }
@@ -197,7 +197,7 @@ class MqttSubscriptionController extends ControllerBase implements ContainerInje
       }
     }
 
-    $build['mqtt_subscription_revisions_table'] = [
+    $build['mqtt_revisions_table'] = [
       '#theme' => 'table',
       '#rows' => $rows,
       '#header' => $header,

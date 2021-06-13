@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Plugin\QueueWorker;
+namespace Drupal\mqtt\Plugin\QueueWorker;
 
 use Drupal\Core\Queue\QueueWorkerBase;
-use Drupal\mqtt_subscribe\Event\MqttSubscriptionCheckEvent;
+use Drupal\mqtt\Event\MqttSubscriptionCheckEvent;
 use karpy47\PhpMqttClient\MQTTClient;
 
 /**
@@ -23,10 +23,10 @@ class MqttSubscriptionQueue extends QueueWorkerBase {
   public function processItem($data) {
 
     // todo: load the following library properly...
-    module_load_include('module', 'mqtt_subscribe', '/vendor/karpy47/autoload.php');
+    module_load_include('module', 'mqtt', '/vendor/karpy47/autoload.php');
 
     // Process item operations.
-    $broker_config = \Drupal::config('mqtt_subscribe.mqttbrokersettingsform');
+    $broker_config = \Drupal::config('mqtt.mqttbrokersettingsform');
 
     foreach ($data->subscriptions as $subscription) {
       $subscription_topic = $subscription->getName();

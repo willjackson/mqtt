@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe;
+namespace Drupal\mqtt;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
@@ -9,7 +9,7 @@ use Drupal\Core\Link;
 /**
  * Defines a class to build a listing of MQTT Broker entities.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttBrokerListBuilder extends EntityListBuilder {
 
@@ -26,7 +26,7 @@ class MqttBrokerListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var \Drupal\mqtt_subscribe\Entity\MqttBroker $entity */
+    /* @var \Drupal\mqtt\Entity\MqttBroker $entity */
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
       $entity->label(),

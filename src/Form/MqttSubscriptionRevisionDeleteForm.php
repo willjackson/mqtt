@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Form;
+namespace Drupal\mqtt\Form;
 
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Provides a form for deleting a MQTT Subscription revision.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttSubscriptionRevisionDeleteForm extends ConfirmFormBase {
 

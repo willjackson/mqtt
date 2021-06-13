@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Plugin\RulesAction;
+namespace Drupal\mqtt\Plugin\RulesAction;
 
-use Drupal\mqtt_subscribe\Entity\MqttBroker;
+use Drupal\mqtt\Entity\MqttBroker;
 use Drupal\rules\Core\RulesActionBase;
 use karpy47\PhpMqttClient\MQTTClient;
 
@@ -36,7 +36,7 @@ class BrokerPublish extends RulesActionBase {
   /**
    * Executes the action with the given context.
    *
-   * @param \Drupal\mqtt_subscribe\Entity\MqttBroker $broker
+   * @param \Drupal\mqtt\Entity\MqttBroker $broker
    *   The node to modify.
    * @param string $subscription
    *   Message to send to broker.
@@ -45,7 +45,7 @@ class BrokerPublish extends RulesActionBase {
    */
   protected function doExecute(MqttBroker $broker, $subscription, $message) {
     // Process item operations.
-    $broker_config = \Drupal::config('mqtt_subscribe.mqttbrokersettingsform');
+    $broker_config = \Drupal::config('mqtt.mqttbrokersettingsform');
     $subscription_broker_id = $broker_config->get('mqtt_id');
 
     $broker_host = $broker->get('broker_address')->getValue()[0]['value'];

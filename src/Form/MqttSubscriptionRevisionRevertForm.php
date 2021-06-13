@@ -1,17 +1,17 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Form;
+namespace Drupal\mqtt\Form;
 
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\mqtt_subscribe\Entity\MqttSubscriptionInterface;
+use Drupal\mqtt\Entity\MqttSubscriptionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a form for reverting a MQTT Subscription revision.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttSubscriptionRevisionRevertForm extends ConfirmFormBase {
 
@@ -41,7 +41,7 @@ class MqttSubscriptionRevisionRevertForm extends ConfirmFormBase {
    */
   public static function create(ContainerInterface $container) {
     $instance = parent::create($container);
-    $instance->mqttSubscriptionStorage = $container->get('entity_type.manager')->getStorage('mqtt_subscription');
+    $instance->mqttSubscriptionStorage = $container->get('entity_type.manager')->getStorage('mqtt');
     $instance->dateFormatter = $container->get('date.formatter');
     return $instance;
   }

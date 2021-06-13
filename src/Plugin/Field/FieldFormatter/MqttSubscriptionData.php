@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Plugin\Field\FieldFormatter;
+namespace Drupal\mqtt\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Field\FieldItemInterface;
@@ -53,7 +53,7 @@ class MqttSubscriptionData extends FormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-//    $render_array['#attached']['library'][] = 'mqtt_subscribe/subscription_csv_data';
+//    $render_array['#attached']['library'][] = 'mqtt/subscription_csv_data';
     $elements = [];
 
     foreach ($items as $delta => $item) {
@@ -69,7 +69,7 @@ class MqttSubscriptionData extends FormatterBase {
         $elements[$delta] = array(
           '#csv_data' => $this->viewValue($item), // any other preprocessing
           '#attached' => array(
-            'library'=> array('mqtt_subscribe/subscription_csv_data'),
+            'library'=> array('mqtt/subscription_csv_data'),
             'drupalSettings'=> array(
               'csvData' => file_create_url($file->getFileUri()),
               'subName' => $item->getEntity()->getName()

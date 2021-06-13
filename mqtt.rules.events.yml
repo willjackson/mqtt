@@ -1,8 +1,8 @@
 # MQTT events.
-mqtt_subscription_check:
+mqtt_check:
   label: 'MQTT Subscriptions are retrieved'
   category: 'MQTT'
   context_definitions:
     subscription:
-      type: 'entity:mqtt_subscription'
+      type: 'entity:mqtt'
       label: 'Subscription'

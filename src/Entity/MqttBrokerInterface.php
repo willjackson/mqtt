@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Entity;
+namespace Drupal\mqtt\Entity;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\RevisionLogInterface;
@@ -11,7 +11,7 @@ use Drupal\user\EntityOwnerInterface;
 /**
  * Provides an interface for defining MQTT Broker entities.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 interface MqttBrokerInterface extends ContentEntityInterface, RevisionLogInterface, EntityChangedInterface, EntityPublishedInterface, EntityOwnerInterface {
 
@@ -33,7 +33,7 @@ interface MqttBrokerInterface extends ContentEntityInterface, RevisionLogInterfa
    * @param string $name
    *   The MQTT Broker name.
    *
-   * @return \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface
+   * @return \Drupal\mqtt\Entity\MqttBrokerInterface
    *   The called MQTT Broker entity.
    */
   public function setName($name);
@@ -52,7 +52,7 @@ interface MqttBrokerInterface extends ContentEntityInterface, RevisionLogInterfa
    * @param int $timestamp
    *   The MQTT Broker creation timestamp.
    *
-   * @return \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface
+   * @return \Drupal\mqtt\Entity\MqttBrokerInterface
    *   The called MQTT Broker entity.
    */
   public function setCreatedTime($timestamp);
@@ -71,7 +71,7 @@ interface MqttBrokerInterface extends ContentEntityInterface, RevisionLogInterfa
    * @param int $timestamp
    *   The UNIX timestamp of when this revision was created.
    *
-   * @return \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface
+   * @return \Drupal\mqtt\Entity\MqttBrokerInterface
    *   The called MQTT Broker entity.
    */
   public function setRevisionCreationTime($timestamp);
@@ -90,7 +90,7 @@ interface MqttBrokerInterface extends ContentEntityInterface, RevisionLogInterfa
    * @param int $uid
    *   The user ID of the revision author.
    *
-   * @return \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface
+   * @return \Drupal\mqtt\Entity\MqttBrokerInterface
    *   The called MQTT Broker entity.
    */
   public function setRevisionUserId($uid);

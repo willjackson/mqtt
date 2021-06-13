@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Form;
+namespace Drupal\mqtt\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Class MqttSubscriptionSettingsForm.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttSubscriptionSettingsForm extends ConfigFormBase {
 
@@ -17,7 +17,7 @@ class MqttSubscriptionSettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'mqtt_subscribe.mqttsubscriptionsettingsform',
+      'mqtt.mqttsubscriptionsettingsform',
     ];
   }
 
@@ -40,7 +40,7 @@ class MqttSubscriptionSettingsForm extends ConfigFormBase {
    *   The current state of the form.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->config('mqtt_subscribe.mqttsubscriptionsettingsform')
+    $this->config('mqtt.mqttsubscriptionsettingsform')
       ->set('mqtt_polling_interval', $form_state->getValue('mqtt_polling_interval'))
       ->save();
   }
@@ -58,7 +58,7 @@ class MqttSubscriptionSettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $config = $this->config('mqtt_subscribe.mqttsubscriptionsettingsform');
+    $config = $this->config('mqtt.mqttsubscriptionsettingsform');
 
 
     $form['mqtt_polling_interval'] = [

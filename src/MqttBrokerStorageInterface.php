@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\mqtt_subscribe;
+namespace Drupal\mqtt;
 
 use Drupal\Core\Entity\ContentEntityStorageInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\mqtt_subscribe\Entity\MqttBrokerInterface;
+use Drupal\mqtt\Entity\MqttBrokerInterface;
 
 /**
  * Defines the storage handler class for MQTT Broker entities.
@@ -13,14 +13,14 @@ use Drupal\mqtt_subscribe\Entity\MqttBrokerInterface;
  * This extends the base storage class, adding required special handling for
  * MQTT Broker entities.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 interface MqttBrokerStorageInterface extends ContentEntityStorageInterface {
 
   /**
    * Gets a list of MQTT Broker revision IDs for a specific MQTT Broker.
    *
-   * @param \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface $entity
+   * @param \Drupal\mqtt\Entity\MqttBrokerInterface $entity
    *   The MQTT Broker entity.
    *
    * @return int[]
@@ -42,7 +42,7 @@ interface MqttBrokerStorageInterface extends ContentEntityStorageInterface {
   /**
    * Counts the number of revisions in the default language.
    *
-   * @param \Drupal\mqtt_subscribe\Entity\MqttBrokerInterface $entity
+   * @param \Drupal\mqtt\Entity\MqttBrokerInterface $entity
    *   The MQTT Broker entity.
    *
    * @return int

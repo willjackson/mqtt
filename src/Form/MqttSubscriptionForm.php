@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mqtt_subscribe\Form;
+namespace Drupal\mqtt\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Form controller for MQTT Subscription edit forms.
  *
- * @ingroup mqtt_subscribe
+ * @ingroup mqtt
  */
 class MqttSubscriptionForm extends ContentEntityForm {
 

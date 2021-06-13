@@ -25,7 +25,7 @@ entity.mqtt_broker.delete_form:
   title: Delete
   weight: 10
 # MQTT Subscription routing definition
-mqtt_subscription.settings_tab:
+mqtt.settings_tab:
   route_name: mqtt_subscription.settings
   title: 'Settings'
   base_route: mqtt_subscription.settings
