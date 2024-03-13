@@ -1,5 +1,6 @@
 name: 'MQTT'
 type: module
 description: 'Connect to MQTT brokers and subscribe to retrieve subscription data and build report data via csv file.'
-core_version_requirement: ^8.8 || ^9
 package: 'MQTT'
+core_version_requirement: ^9 || ^10
+version: '1.0.0'
