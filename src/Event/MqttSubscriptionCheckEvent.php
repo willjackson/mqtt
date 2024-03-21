@@ -3,7 +3,7 @@
 namespace Drupal\mqtt\Event;
 
 use Drupal\mqtt\Entity\MqttSubscription;
-use Symfony\Component\EventDispatcher\Event;
+use Drupal\Component\EventDispatcher\Event;
 
 /**
  * Event that is fired when mqtt subscriptions are retrieved.

@@ -3,6 +3,7 @@
 namespace Drupal\mqtt\Plugin\QueueWorker;
 
 use Drupal\Core\Queue\QueueWorkerBase;
+use Drupal\file\Entity\File;
 use Drupal\mqtt\Event\MqttSubscriptionCheckEvent;
 use karpy47\PhpMqttClient\MQTTClient;
 
@@ -21,9 +22,6 @@ class MqttSubscriptionQueue extends QueueWorkerBase {
    * {@inheritdoc}
    */
   public function processItem($data) {
-
-    // todo: load the following library properly...
-    module_load_include('module', 'mqtt', '/vendor/karpy47/autoload.php');
 
     // Process item operations.
     $broker_config = \Drupal::config('mqtt.mqttbrokersettingsform');
@@ -106,7 +104,7 @@ class MqttSubscriptionQueue extends QueueWorkerBase {
           $url_scheme = $subscription->getFieldDefinition('csv_data')->getSetting('uri_scheme');
           $directory = "$url_scheme://$sub_directory";
           file_prepare_directory($directory, FILE_CREATE_DIRECTORY);
-          $sub_file = file_save_data(fopen(file_directory_temp() . "/sub_$timestamp.csv", 'r'),  $directory . '/sub_' . $subscription->id() . '.csv', FILE_EXISTS_REPLACE);
+          $sub_file = \Drupal::service('file.repository')->writeData(fopen(file_directory_temp() . "/sub_$timestamp.csv", 'r'),  $directory . '/sub_' . $subscription->id() . '.csv', FILE_EXISTS_REPLACE);
           $subscription->set('csv_data', ['target_id' => $sub_file->id()]);
           $subscription->save();
         }

@@ -53,8 +53,8 @@ class MqttSubscriptionData extends FormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-//    $render_array['#attached']['library'][] = 'mqtt/subscription_csv_data';
     $elements = [];
+    $file_url_generator = \Drupal::service('file_url_generator');
 
     foreach ($items as $delta => $item) {
 
@@ -65,18 +65,19 @@ class MqttSubscriptionData extends FormatterBase {
       }
 
       if (!empty($file)) {
+        $file_url = $file_url_generator->generateString($file->getFileUri());
 
-        $elements[$delta] = array(
+        $elements[$delta] = [
           '#csv_data' => $this->viewValue($item), // any other preprocessing
-          '#attached' => array(
-            'library'=> array('mqtt/subscription_csv_data'),
-            'drupalSettings'=> array(
-              'csvData' => file_create_url($file->getFileUri()),
+          '#attached' => [
+            'library' => ['mqtt/subscription_csv_data'],
+            'drupalSettings' => [
+              'csvData' => $file_url,
               'subName' => $item->getEntity()->getName()
-            ),
-          ),
+            ],
+          ],
           '#markup' => '<div id="chartContainer" style="width:100%; height:300px;"></div>'
-        );
+        ];
       }
     }
 
