@@ -3,4 +3,4 @@ type: module
 description: 'Connect to MQTT brokers and subscribe to retrieve subscription data and build report data via csv file.'
 package: 'MQTT'
 core_version_requirement: ^9 || ^10
-version: '1.0.1'
+version: '1.0.2'
